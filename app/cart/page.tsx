@@ -3,6 +3,7 @@
 import { Button } from "@/components/Button";
 import { CartLineItem } from "@/components/CartLineItem";
 import { Heading } from "@/components/Heading";
+import { Reveal } from "@/components/Reveal";
 import { useCart } from "@/lib/cart/cart-context";
 import { formatMoney } from "@/lib/format";
 
@@ -12,9 +13,11 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl px-5 py-14 md:px-8 md:py-20">
-      <Heading level={1} className="mb-10">
-        Carrinho
-      </Heading>
+      <Reveal>
+        <Heading level={1} className="mb-10">
+          Carrinho
+        </Heading>
+      </Reveal>
 
       {items.length === 0 ? (
         <div className="space-y-6 border-t border-mush-divider/50 py-12">

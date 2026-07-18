@@ -4,6 +4,7 @@ import { AddToCartButton } from "@/components/AddToCartButton";
 import { Heading } from "@/components/Heading";
 import { Label } from "@/components/Label";
 import { ProductGallery } from "@/components/ProductGallery";
+import { Reveal } from "@/components/Reveal";
 import { formatMoney } from "@/lib/format";
 import {
   getProductByHandle,
@@ -39,9 +40,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-12 md:grid-cols-2 md:gap-14 md:px-8 md:py-20">
-      <ProductGallery images={product.images} title={product.title} />
+      <Reveal>
+        <ProductGallery images={product.images} title={product.title} />
+      </Reveal>
 
-      <div className="space-y-6 md:pt-4">
+      <Reveal className="space-y-6 md:pt-4" delay={0.08}>
         <Label>Feito à mão</Label>
         <Heading level={3} as="h1">
           {product.title}
@@ -54,7 +57,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="border-t border-mush-divider/50 pt-8">
           <AddToCartButton product={product} />
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }

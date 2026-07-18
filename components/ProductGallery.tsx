@@ -1,7 +1,9 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { hoverZoomTransition } from "@/lib/motion";
 import type { ProductImage } from "@/lib/products/types";
 
 type ProductGalleryProps = {
@@ -11,6 +13,7 @@ type ProductGalleryProps = {
 
 export function ProductGallery({ images, title }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
   const active = images[activeIndex] ?? images[0];
 
   if (!active) {
@@ -22,14 +25,20 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
   return (
     <div className="space-y-4">
       <div className="relative aspect-square w-full overflow-hidden bg-mush-secondary">
-        <Image
-          src={active.url}
-          alt={active.altText || title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          priority
-        />
+        <motion.div
+          className="absolute inset-0"
+          whileHover={reduceMotion ? undefined : { scale: 1.04 }}
+          transition={hoverZoomTransition(reduceMotion)}
+        >
+          <Image
+            src={active.url}
+            alt={active.altText || title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
+          />
+        </motion.div>
       </div>
 
       {images.length > 1 ? (

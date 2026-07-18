@@ -1,11 +1,35 @@
 "use client";
 
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useReducedMotion,
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useCart } from "@/lib/cart/cart-context";
+import { duration } from "@/lib/motion";
 
 export function Header() {
-  const { itemCount } = useCart();
+  const { itemCount, addPulse } = useCart();
+  const reduceMotion = useReducedMotion();
+  const cartControls = useAnimation();
+
+  useEffect(() => {
+    if (!addPulse) return;
+
+    if (reduceMotion) {
+      void cartControls.start({ scale: 1 });
+      return;
+    }
+
+    void cartControls.start({
+      scale: [1, 1.15, 1],
+      transition: { duration: duration.cartPulse, ease: "easeOut" },
+    });
+  }, [addPulse, cartControls, reduceMotion]);
 
   return (
     <header className="border-b border-mush-divider/40">
@@ -28,12 +52,39 @@ export function Header() {
           >
             Loja
           </Link>
-          <Link
-            href="/cart"
-            className="font-work text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
-          >
-            Carrinho{itemCount > 0 ? ` (${itemCount})` : ""}
-          </Link>
+          <motion.div animate={cartControls} className="inline-flex">
+            <Link
+              href="/cart"
+              className="font-work inline-flex items-center gap-1 text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
+            >
+              Carrinho
+              <AnimatePresence mode="wait" initial={false}>
+                {itemCount > 0 ? (
+                  <motion.span
+                    key={itemCount}
+                    initial={
+                      reduceMotion
+                        ? { opacity: 1 }
+                        : { opacity: 0, scale: 0.85 }
+                    }
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={
+                      reduceMotion
+                        ? { opacity: 1 }
+                        : { opacity: 0, scale: 0.85 }
+                    }
+                    transition={{
+                      duration: reduceMotion ? 0.01 : duration.count,
+                      ease: "easeOut",
+                    }}
+                    className="inline-block"
+                  >
+                    ({itemCount})
+                  </motion.span>
+                ) : null}
+              </AnimatePresence>
+            </Link>
+          </motion.div>
         </nav>
       </div>
     </header>

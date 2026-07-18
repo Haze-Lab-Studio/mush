@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Work_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PageTransition } from "@/components/PageTransition";
 import { CartProvider } from "@/lib/cart/cart-context";
 import "./globals.css";
 
@@ -43,7 +44,9 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-mush-background text-mush-text">
         <CartProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </CartProvider>
       </body>

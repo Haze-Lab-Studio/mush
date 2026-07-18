@@ -16,6 +16,8 @@ const STORAGE_KEY = "mush-cart";
 type CartContextValue = {
   items: CartItem[];
   itemCount: number;
+  /** Increments on each successful add — Header listens for cart pulse animation */
+  addPulse: number;
   addItem: (product: Product, variant: ProductVariant, quantity?: number) => void;
   updateQuantity: (variantId: string, quantity: number) => void;
   removeItem: (variantId: string) => void;
@@ -40,6 +42,7 @@ function loadCart(): CartItem[] {
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [addPulse, setAddPulse] = useState(0);
 
   useEffect(() => {
     setItems(loadCart());
@@ -80,6 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
         return [...current, next];
       });
+      setAddPulse((pulse) => pulse + 1);
     },
     [],
   );
@@ -121,13 +125,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
     () => ({
       items,
       itemCount,
+      addPulse,
       addItem,
       updateQuantity,
       removeItem,
       clearCart,
       getSubtotal,
     }),
-    [items, itemCount, addItem, updateQuantity, removeItem, clearCart, getSubtotal],
+    [
+      items,
+      itemCount,
+      addPulse,
+      addItem,
+      updateQuantity,
+      removeItem,
+      clearCart,
+      getSubtotal,
+    ],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
