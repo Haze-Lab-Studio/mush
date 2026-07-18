@@ -17,7 +17,7 @@ export async function getProductByHandle(
   return products.find((product) => product.handle === handle);
 }
 
-export async function getFeaturedProducts(limit = 4): Promise<Product[]> {
+export async function getFeaturedProducts(limit = 6): Promise<Product[]> {
   return products.slice(0, limit);
 }
 
