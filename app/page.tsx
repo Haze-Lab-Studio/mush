@@ -23,8 +23,8 @@ export default async function HomePage() {
 
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-mush-secondary md:aspect-[5/6]">
           <Image
-            src="/images/mushroom-cap.svg"
-            alt="Mush hand-poured candle"
+            src="/images/product-8.png"
+            alt="Vela Mush Fungos Silvestres entre cogumelos no chão da floresta"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
