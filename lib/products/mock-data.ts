@@ -259,32 +259,4 @@ export const products: Product[] = [
     ],
     variants: [variant("gid://shopify/ProductVariant/10151", "Default Title", "92.00")],
   },
-  {
-    id: "gid://shopify/Product/1016",
-    handle: "forest-set",
-    title: "Kit Floresta",
-    description:
-      "Um conjunto com três dos nossos aromas mais terrosos — Musgo da Floresta, Fungos Silvestres e Cogumelo da Manhã. Feito em pequenos lotes, para conhecer a floresta Mush de uma vez.",
-    priceRange: { minVariantPrice: money("239.00") },
-    images: [
-      { url: "/images/product-2.png", altText: "Vela Musgo da Floresta, parte do Kit Floresta" },
-      { url: "/images/product-8.png", altText: "Vela Fungos Silvestres, parte do Kit Floresta" },
-      { url: "/images/product-10.png", altText: "Vela Cogumelo da Manhã, parte do Kit Floresta" },
-    ],
-    variants: [variant("gid://shopify/ProductVariant/10161", "Default Title", "239.00")],
-  },
-  {
-    id: "gid://shopify/Product/1017",
-    handle: "botanical-set",
-    title: "Kit Botânico",
-    description:
-      "Um trio para quem ama ervas — Sálvia Sagrada, Jardim de Ervas Silvestres e Lavanda Seca, reunidos em um único kit hand-poured, pensado para os amantes de apothecary.",
-    priceRange: { minVariantPrice: money("229.00") },
-    images: [
-      { url: "/images/product-11.png", altText: "Vela Sálvia Sagrada, parte do Kit Botânico" },
-      { url: "/images/product-13.png", altText: "Vela Jardim de Ervas Silvestres, parte do Kit Botânico" },
-      { url: "/images/product-3.png", altText: "Vela Lavanda Seca, parte do Kit Botânico" },
-    ],
-    variants: [variant("gid://shopify/ProductVariant/10171", "Default Title", "229.00")],
-  },
 ];
