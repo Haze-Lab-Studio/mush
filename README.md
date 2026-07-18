@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mush
 
-## Getting Started
+Headless storefront for Mush — small-batch, hand-poured candles.
 
-First, run the development server:
+Built with Next.js (App Router), TypeScript, and Tailwind CSS. Product data is local mock data shaped like Shopify’s Storefront API so the future Shopify swap stays mechanical.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What’s included
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Homepage with hero + featured products
+- Catalog (`/products`)
+- Product detail (`/products/[handle]`)
+- Cart with add / update / remove (React Context + `localStorage`)
+- Styled checkout placeholder (no real payments yet)
 
-## Learn More
+## Data layer
 
-To learn more about Next.js, take a look at the following resources:
+- [`lib/products/mock-data.ts`](lib/products/mock-data.ts) — mock catalog
+- [`lib/products/get-products.ts`](lib/products/get-products.ts) — **only** file that should change when Shopify is wired in
+- [`lib/cart/cart-context.tsx`](lib/cart/cart-context.tsx) — mock cart; replace with Shopify Cart API later
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Brand
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Colors and typography follow the Mush design system (Lora + Work Sans). Reference assets live in `docs/` and `public/brand/`.

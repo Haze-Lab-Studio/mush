@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-mush-background: #f2e9dc;
+  --color-mush-text: #2b2620;
+  --color-mush-brand: #6b4f3a;
+  --color-mush-secondary: #e8dcc8;
+  --color-mush-accent-deep: #5b2a3d;
+  --color-mush-accent-warm: #8a5240;
+  --color-mush-muted-accent: #6b7150;
+  --color-mush-divider: #ad9686;
+
+  --font-lora: var(--font-lora-face), Georgia, "Times New Roman", serif;
+  --font-work: var(--font-work-face), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-mush-background);
+    color: var(--color-mush-text);
+    font-family: var(--font-lora);
+    font-size: 20px;
+    line-height: 32px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-body {
+    font-family: var(--font-lora);
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+
+  .text-body-bold {
+    font-family: var(--font-lora);
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+
+  .text-caption {
+    font-family: var(--font-lora);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  .text-ui {
+    font-family: var(--font-work);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+  }
 }
