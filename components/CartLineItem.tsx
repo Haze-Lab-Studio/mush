@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { IconButton } from "@/components/IconButton";
 import { useCart } from "@/lib/cart/cart-context";
 import { formatMoney } from "@/lib/format";
 import type { CartItem } from "@/lib/products/types";
@@ -49,25 +50,23 @@ export function CartLineItem({ item }: CartLineItemProps) {
 
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center border border-mush-divider">
-            <button
-              type="button"
+            <IconButton
               className="font-work px-3 py-1.5 text-[15px] font-medium text-mush-brand hover:bg-mush-secondary"
               onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
               aria-label="Diminuir quantidade"
             >
               −
-            </button>
+            </IconButton>
             <span className="font-work min-w-8 px-2 text-center text-[15px] font-medium">
               {item.quantity}
             </span>
-            <button
-              type="button"
+            <IconButton
               className="font-work px-3 py-1.5 text-[15px] font-medium text-mush-brand hover:bg-mush-secondary"
               onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
               aria-label="Aumentar quantidade"
             >
               +
-            </button>
+            </IconButton>
           </div>
 
           <button

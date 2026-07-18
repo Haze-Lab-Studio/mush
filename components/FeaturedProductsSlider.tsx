@@ -5,6 +5,7 @@ import { useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/Button";
 import { Heading } from "@/components/Heading";
+import { IconButton } from "@/components/IconButton";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import type { Product } from "@/lib/products/types";
@@ -156,24 +157,22 @@ export function FeaturedProductsSlider({ products }: FeaturedProductsSliderProps
       ) : null}
 
       <div className="mt-8 hidden items-center justify-end gap-3 md:mt-12 md:flex">
-        <button
-          type="button"
+        <IconButton
           onClick={scrollPrev}
           disabled={!canScrollPrev}
           aria-label="Produtos anteriores"
-          className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
+          className="text-mush-brand hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
         >
           <ChevronLeft />
-        </button>
-        <button
-          type="button"
+        </IconButton>
+        <IconButton
           onClick={scrollNext}
           disabled={!canScrollNext}
           aria-label="Próximos produtos"
-          className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
+          className="text-mush-brand hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
         >
           <ChevronRight />
-        </button>
+        </IconButton>
       </div>
     </section>
   );
