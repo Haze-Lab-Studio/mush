@@ -111,8 +111,11 @@ export function FeaturedProductsSlider({ products }: FeaturedProductsSliderProps
 
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pb-20 md:px-8 md:pb-28">
-      <Reveal className="mb-10 md:mb-14">
+      <Reveal className="mb-10 flex flex-col gap-3 md:mb-14 md:flex-row md:items-end md:justify-between">
         <Heading level={2}>Destaques</Heading>
+        <Button href="/products" variant="secondary">
+          Ver tudo
+        </Button>
       </Reveal>
 
       <div className="overflow-hidden" ref={emblaRef}>
@@ -152,33 +155,25 @@ export function FeaturedProductsSlider({ products }: FeaturedProductsSliderProps
         </div>
       ) : null}
 
-      <div className="mt-8 flex items-center justify-end gap-6 md:mt-12">
-        <div className="hidden items-center gap-3 md:flex">
-          <button
-            type="button"
-            onClick={scrollPrev}
-            disabled={!canScrollPrev}
-            aria-label="Produtos anteriores"
-            className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            type="button"
-            onClick={scrollNext}
-            disabled={!canScrollNext}
-            aria-label="Próximos produtos"
-            className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
-          >
-            <ChevronRight />
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-8 flex justify-end md:mt-10">
-        <Button href="/products" variant="secondary">
-          Ver tudo
-        </Button>
+      <div className="mt-8 hidden items-center justify-end gap-3 md:mt-12 md:flex">
+        <button
+          type="button"
+          onClick={scrollPrev}
+          disabled={!canScrollPrev}
+          aria-label="Produtos anteriores"
+          className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
+        >
+          <ChevronLeft />
+        </button>
+        <button
+          type="button"
+          onClick={scrollNext}
+          disabled={!canScrollNext}
+          aria-label="Próximos produtos"
+          className="text-mush-brand transition-colors hover:text-mush-accent-deep disabled:pointer-events-none disabled:opacity-25"
+        >
+          <ChevronRight />
+        </button>
       </div>
     </section>
   );
