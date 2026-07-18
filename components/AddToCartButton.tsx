@@ -34,7 +34,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
   return (
     <div className="space-y-6">
       {hasMultipleVariants ? (
-        <div className="space-y-3">
+        <div className="flex flex-wrap items-center">
           <Label as="label" htmlFor="variant">
             Tamanho
           </Label>
@@ -42,7 +42,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
             id="variant"
             value={variantId}
             onChange={(event) => setVariantId(event.target.value)}
-            className="w-full max-w-xs rounded-[5px] border border-mush-divider bg-mush-background px-4 py-3 font-work text-[15px] font-medium text-mush-text outline-none focus:border-mush-brand"
+            className="ml-[25px] max-w-xs min-w-[12rem] rounded-[5px] border border-mush-divider bg-mush-background px-4 py-3 font-work text-[15px] font-medium text-mush-text outline-none focus:border-mush-brand"
           >
             {product.variants.map((variant) => (
               <option key={variant.id} value={variant.id}>
