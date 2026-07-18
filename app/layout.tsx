@@ -23,11 +23,11 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mush — Hand-Poured Candles",
+    default: "Mush — Velas Feitas à Mão",
     template: "%s — Mush",
   },
   description:
-    "Small-batch, hand-poured soy candles with foraged, earthy scents.",
+    "Velas de soja feitas à mão, em pequenos lotes, com aromas terrosos e naturais.",
 };
 
 export default function RootLayout({

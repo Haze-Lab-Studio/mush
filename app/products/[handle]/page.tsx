@@ -24,7 +24,7 @@ export async function generateMetadata({
 }: ProductPageProps): Promise<Metadata> {
   const { handle } = await params;
   const product = await getProductByHandle(handle);
-  if (!product) return { title: "Product" };
+  if (!product) return { title: "Produto" };
   return {
     title: product.title,
     description: product.description,
@@ -42,12 +42,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <ProductGallery images={product.images} title={product.title} />
 
       <div className="space-y-6 md:pt-4">
-        <Label>Hand-poured</Label>
+        <Label>Feito à mão</Label>
         <Heading level={3} as="h1">
           {product.title}
         </Heading>
         <p className="font-lora text-[22px] leading-8 text-mush-brand">
-          {product.variants.length > 1 ? "From " : ""}
+          {product.variants.length > 1 ? "A partir de " : ""}
           {formatMoney(product.priceRange.minVariantPrice)}
         </p>
         <p className="text-body max-w-lg">{product.description}</p>

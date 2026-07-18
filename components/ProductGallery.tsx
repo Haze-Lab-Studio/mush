@@ -44,7 +44,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
                   ? "ring-2 ring-mush-brand ring-offset-2 ring-offset-mush-background"
                   : "opacity-70 hover:opacity-100"
               }`}
-              aria-label={`View image ${index + 1}`}
+              aria-label={`Ver imagem ${index + 1}`}
             >
               <Image
                 src={image.url}

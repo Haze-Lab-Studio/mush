@@ -53,7 +53,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
               type="button"
               className="font-work px-3 py-1.5 text-[15px] font-medium text-mush-brand hover:bg-mush-secondary"
               onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
-              aria-label="Decrease quantity"
+              aria-label="Diminuir quantidade"
             >
               −
             </button>
@@ -64,7 +64,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
               type="button"
               className="font-work px-3 py-1.5 text-[15px] font-medium text-mush-brand hover:bg-mush-secondary"
               onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
-              aria-label="Increase quantity"
+              aria-label="Aumentar quantidade"
             >
               +
             </button>
@@ -75,7 +75,7 @@ export function CartLineItem({ item }: CartLineItemProps) {
             onClick={() => removeItem(item.variantId)}
             className="font-work text-[15px] font-medium text-mush-divider underline-offset-4 hover:text-mush-accent-deep hover:underline"
           >
-            Remove
+            Remover
           </button>
 
           <p className="text-ui ml-auto text-mush-text">

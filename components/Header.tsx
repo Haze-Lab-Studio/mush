@@ -10,16 +10,13 @@ export function Header() {
   return (
     <header className="border-b border-mush-divider/40">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5 md:px-8">
-        <Link href="/" className="flex items-center gap-2" aria-label="Mush home">
-          <span className="font-lora text-[28px] leading-none font-bold tracking-tight text-mush-text md:text-[32px]">
-            Mush
-          </span>
+        <Link href="/" className="inline-flex items-center" aria-label="Mush home">
           <Image
-            src="/brand/mushroom.svg"
-            alt=""
-            width={36}
-            height={40}
-            className="h-9 w-auto"
+            src="/brand/logo.png"
+            alt="Mush"
+            width={168}
+            height={60}
+            className="h-10 w-auto md:h-12"
             priority
           />
         </Link>
@@ -29,13 +26,13 @@ export function Header() {
             href="/products"
             className="font-work text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
           >
-            Shop
+            Loja
           </Link>
           <Link
             href="/cart"
             className="font-work text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
           >
-            Cart{itemCount > 0 ? ` (${itemCount})` : ""}
+            Carrinho{itemCount > 0 ? ` (${itemCount})` : ""}
           </Link>
         </nav>
       </div>

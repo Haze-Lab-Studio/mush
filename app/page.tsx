@@ -12,13 +12,13 @@ export default async function HomePage() {
     <div>
       <section className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:items-center md:gap-14 md:px-8 md:py-24">
         <div className="space-y-6">
-          <Label>Small batch · Hand-poured</Label>
-          <Heading level={1}>Candles foraged from quiet places</Heading>
+          <Label>Pequenos lotes · Feito à mão</Label>
+          <Heading level={1}>Velas nascidas de lugares silenciosos</Heading>
           <p className="text-body max-w-md text-mush-brand">
-            Soy wax, cotton wicks, and earthy scents poured in small batches —
-            made to bring the woods indoors.
+            Cera de soja, pavios de algodão e aromas terrosos, feitos em
+            pequenos lotes — para trazer a floresta para dentro de casa.
           </p>
-          <Button href="/products">Shop candles</Button>
+          <Button href="/products">Ver velas</Button>
         </div>
 
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-mush-secondary md:aspect-[5/6]">
@@ -35,9 +35,9 @@ export default async function HomePage() {
 
       <section className="mx-auto w-full max-w-6xl px-5 pb-20 md:px-8 md:pb-28">
         <div className="mb-10 flex flex-col gap-3 md:mb-14 md:flex-row md:items-end md:justify-between">
-          <Heading level={2}>Featured</Heading>
+          <Heading level={2}>Destaques</Heading>
           <Button href="/products" variant="secondary">
-            View all
+            Ver tudo
           </Button>
         </div>
         <ProductGrid products={featured} />

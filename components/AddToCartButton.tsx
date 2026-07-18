@@ -36,7 +36,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
       {hasMultipleVariants ? (
         <div className="space-y-3">
           <Label as="label" htmlFor="variant">
-            Size
+            Tamanho
           </Label>
           <select
             id="variant"
@@ -47,7 +47,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
             {product.variants.map((variant) => (
               <option key={variant.id} value={variant.id}>
                 {variant.title}
-                {!variant.availableForSale ? " — Sold out" : ""}
+                {!variant.availableForSale ? " — Esgotado" : ""}
                 {` · ${formatMoney(variant.price)}`}
               </option>
             ))}
@@ -62,7 +62,7 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
           disabled={unavailable || !selectedVariant}
           className="min-w-[200px]"
         >
-          {unavailable ? "Sold out" : added ? "Added" : "Add to cart"}
+          {unavailable ? "Esgotado" : added ? "Adicionado" : "Adicionar ao carrinho"}
         </Button>
         {selectedVariant && !hasMultipleVariants ? (
           <p className="text-ui text-mush-brand">

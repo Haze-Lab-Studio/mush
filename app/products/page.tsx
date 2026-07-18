@@ -4,7 +4,7 @@ import { ProductGrid } from "@/components/ProductGrid";
 import { getProducts } from "@/lib/products/get-products";
 
 export const metadata: Metadata = {
-  title: "Shop",
+  title: "Loja",
 };
 
 export default async function ProductsPage() {
@@ -13,10 +13,10 @@ export default async function ProductsPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-5 py-14 md:px-8 md:py-20">
       <div className="mb-12 max-w-2xl space-y-4 md:mb-16">
-        <Heading level={1}>Shop</Heading>
+        <Heading level={1}>Loja</Heading>
         <p className="text-body text-mush-brand">
-          All current small-batch pours — earthy, foraged scents in soy wax with
-          cotton wicks.
+          Todos os lotes atuais — aromas terrosos e naturais em cera de soja
+          com pavios de algodão.
         </p>
       </div>
       <ProductGrid products={products} />

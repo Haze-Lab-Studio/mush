@@ -13,14 +13,14 @@ export default function CartPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-5 py-14 md:px-8 md:py-20">
       <Heading level={1} className="mb-10">
-        Cart
+        Carrinho
       </Heading>
 
       {items.length === 0 ? (
         <div className="space-y-6 border-t border-mush-divider/50 py-12">
-          <p className="text-body text-mush-brand">Your cart is empty.</p>
+          <p className="text-body text-mush-brand">Seu carrinho está vazio.</p>
           <Button href="/products" variant="secondary">
-            Continue shopping
+            Continuar comprando
           </Button>
         </div>
       ) : (
@@ -34,7 +34,7 @@ export default function CartPage() {
           <div className="mt-10 space-y-6 border-t border-mush-divider/50 pt-8">
             <div className="flex items-baseline justify-between gap-4">
               <p className="text-ui text-mush-brand">
-                Subtotal · {itemCount} {itemCount === 1 ? "item" : "items"}
+                Subtotal · {itemCount} {itemCount === 1 ? "item" : "itens"}
               </p>
               <p className="font-lora text-[28px] font-bold text-mush-text">
                 {formatMoney(subtotal)}
@@ -52,10 +52,11 @@ export default function CartPage() {
                 // TODO: Connect to Shopify checkout URL in the next phase
               }}
             >
-              Checkout
+              Finalizar compra
             </Button>
             <p className="text-caption text-mush-divider">
-              Checkout is a styled placeholder until Shopify is connected.
+              O botão de finalizar compra é apenas um espaço reservado até a
+              integração com a Shopify.
             </p>
           </div>
         </>

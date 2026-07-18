@@ -4,7 +4,8 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-10 md:flex-row md:items-end md:justify-between md:px-8">
         <p className="font-lora text-[28px] font-bold text-mush-brand">Mush</p>
         <p className="text-caption text-mush-brand/80">
-          Small-batch, hand-poured soy candles. Foraged scents, cotton wicks.
+          Velas de soja feitas à mão, em pequenos lotes. Aromas de origem
+          natural, pavios de algodão.
         </p>
         <p className="text-caption text-mush-divider">
           © {new Date().getFullYear()} Mush
