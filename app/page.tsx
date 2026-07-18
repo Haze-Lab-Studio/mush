@@ -21,7 +21,7 @@ export default async function HomePage() {
           <Button href="/products">Ver velas</Button>
         </div>
 
-        <div className="relative aspect-[4/5] w-full overflow-hidden bg-mush-secondary md:aspect-[5/6]">
+        <div className="relative aspect-square w-full overflow-hidden bg-mush-secondary">
           <Image
             src="/images/product-8.png"
             alt="Vela Mush Fungos Silvestres entre cogumelos no chão da floresta"

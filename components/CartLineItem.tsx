@@ -20,14 +20,14 @@ export function CartLineItem({ item }: CartLineItemProps) {
     <article className="flex gap-4 border-b border-mush-divider/50 py-6 md:gap-6">
       <Link
         href={`/products/${item.handle}`}
-        className="relative h-28 w-24 shrink-0 overflow-hidden bg-mush-secondary md:h-32 md:w-28"
+        className="relative aspect-square h-28 w-28 shrink-0 overflow-hidden bg-mush-secondary md:h-32 md:w-32"
       >
         <Image
           src={item.image.url}
           alt={item.image.altText}
           fill
           className="object-cover"
-          sizes="112px"
+          sizes="128px"
         />
       </Link>
 

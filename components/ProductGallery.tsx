@@ -15,13 +15,13 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
 
   if (!active) {
     return (
-      <div className="aspect-[4/5] w-full bg-mush-secondary" aria-hidden />
+      <div className="aspect-square w-full bg-mush-secondary" aria-hidden />
     );
   }
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-mush-secondary">
+      <div className="relative aspect-square w-full overflow-hidden bg-mush-secondary">
         <Image
           src={active.url}
           alt={active.altText || title}
@@ -39,7 +39,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
               key={`${image.url}-${index}`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              className={`relative h-20 w-16 overflow-hidden bg-mush-secondary ${
+              className={`relative aspect-square h-20 w-20 overflow-hidden bg-mush-secondary ${
                 index === activeIndex
                   ? "ring-2 ring-mush-brand ring-offset-2 ring-offset-mush-background"
                   : "opacity-70 hover:opacity-100"
