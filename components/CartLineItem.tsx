@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IconButton } from "@/components/IconButton";
+import { TextLink } from "@/components/TextLink";
 import { useCart } from "@/lib/cart/cart-context";
 import { formatMoney } from "@/lib/format";
 import type { CartItem } from "@/lib/products/types";
@@ -34,12 +35,12 @@ export function CartLineItem({ item }: CartLineItemProps) {
 
       <div className="flex min-w-0 flex-1 flex-col justify-between gap-3">
         <div>
-          <Link
+          <TextLink
             href={`/products/${item.handle}`}
-            className="font-lora text-[22px] leading-7 font-bold text-mush-text hover:text-mush-brand md:text-[24px] md:leading-8"
+            className="font-lora text-[22px] leading-7 font-bold md:text-[24px] md:leading-8"
           >
             {item.title}
-          </Link>
+          </TextLink>
           {showVariant ? (
             <p className="text-ui mt-1 text-mush-brand">{item.variantTitle}</p>
           ) : null}

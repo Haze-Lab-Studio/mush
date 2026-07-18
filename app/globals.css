@@ -53,3 +53,105 @@
     font-weight: 500;
   }
 }
+
+/* ——— Text links (nav / footer / plain / inline) ——— */
+
+.text-link {
+  color: var(--color-mush-brand);
+  text-decoration: none;
+  transition: color 250ms ease-out;
+}
+
+.text-link:hover {
+  color: var(--color-mush-brand);
+}
+
+/* Nav, footer, "Ver mais"-style: underline draws L→R */
+.text-link--draw {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  width: fit-content;
+}
+
+.text-link--draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background-color: var(--color-mush-accent-warm);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 250ms ease-out;
+}
+
+.text-link--draw:hover::after,
+.text-link--draw:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.text-link--with-arrow {
+  gap: 0.35em;
+}
+
+.text-link__arrow {
+  display: inline-block;
+  transition: transform 200ms ease-out;
+}
+
+.text-link--with-arrow:hover .text-link__arrow,
+.text-link--with-arrow:focus-visible .text-link__arrow {
+  transform: translateX(4px);
+}
+
+/* Inline body links: underline always on; color shift only */
+.text-link--inline {
+  color: var(--color-mush-brand);
+  text-decoration: underline;
+  text-decoration-color: var(--color-mush-accent-warm);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 150ms ease-out,
+    text-decoration-color 150ms ease-out;
+}
+
+.text-link--inline:hover,
+.text-link--inline:focus-visible {
+  color: var(--color-mush-accent-deep);
+  text-decoration-color: var(--color-mush-accent-deep);
+}
+
+.text-link:focus-visible {
+  outline: none;
+}
+
+.text-link--draw:focus-visible {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px var(--color-mush-background),
+    0 0 0 4px var(--color-mush-accent-warm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-link--draw::after {
+    transform: none;
+    opacity: 0;
+    transition: none;
+  }
+
+  .text-link--draw:hover::after,
+  .text-link--draw:focus-visible::after {
+    opacity: 1;
+  }
+
+  .text-link__arrow {
+    transition: none;
+  }
+
+  .text-link--with-arrow:hover .text-link__arrow,
+  .text-link--with-arrow:focus-visible .text-link__arrow {
+    transform: none;
+  }
+}

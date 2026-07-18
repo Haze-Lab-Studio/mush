@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import { TextLink } from "@/components/TextLink";
 import { useCart } from "@/lib/cart/cart-context";
 import { duration } from "@/lib/motion";
 
@@ -46,16 +47,16 @@ export function Header() {
         </Link>
 
         <nav className="flex items-center gap-6 md:gap-8">
-          <Link
+          <TextLink
             href="/products"
-            className="font-work text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
+            className="font-work text-[15px] leading-[22px] font-medium"
           >
             Loja
-          </Link>
+          </TextLink>
           <motion.div animate={cartControls} className="inline-flex">
-            <Link
+            <TextLink
               href="/cart"
-              className="font-work inline-flex items-center gap-1 text-[15px] leading-[22px] font-medium text-mush-brand transition-colors hover:text-mush-accent-deep"
+              className="font-work inline-flex items-center gap-1 text-[15px] leading-[22px] font-medium"
             >
               Carrinho
               <AnimatePresence mode="wait" initial={false}>
@@ -83,7 +84,7 @@ export function Header() {
                   </motion.span>
                 ) : null}
               </AnimatePresence>
-            </Link>
+            </TextLink>
           </motion.div>
         </nav>
       </div>
